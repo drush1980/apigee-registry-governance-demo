@@ -10,5 +10,5 @@ export PROJECT_ID=<GCP Project ID>
 
 2)
 ```
-gcloud builds submit --config=cloudbuild-maven.yaml
+gcloud builds submit --config=cloudbuild.yaml
 ```
