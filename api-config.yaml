@@ -27,8 +27,43 @@ data:
        specs:
          - metadata:
              name: openapi-010yaml
+             annotations:
+               apihub-comment: Initial version of YAML       
            data:
              filename: openapi-0.1.0.yaml
              mimeType: "application/x.openapi"
-             #sourceURI: "file://./specs/openapi.yaml"
              sourceURI: "file://./openapi.yaml"
+         - metadata:
+             name: openapi-010json
+             annotations:
+               apihub-comment: Initial version of JSON        
+           data:
+             filename: openapi-0.1.0.json
+             mimeType: "application/x.openapi"
+             sourceURI: "file://./openapi.json"             
+ deployments:
+   - metadata:
+       name: mock
+       labels:
+         apihub-gateway: apihub-google-cloud-apigee
+       annotations:
+         apihub-external-channel-name: SwaggerUI
+     data:
+       displayName: Mock
+       apiSpecRevision: 0.1.0/specs/openapi-010json@latest
+       endpointURI: http://104.155.158.220/projects/drush-apigee/locations/global/apis/sdlcdemoapi/deployments/mock
+       intendedAudience: Internal developers
+       accessGuidance: Contact the development team for access
+ artifacts:
+   - kind: ReferenceList
+     metadata:
+       name: apihub-related
+     data:
+       displayName: ""
+       description: Defines a list of related resources
+       references:
+         - id: github
+           displayName: GitHub
+           category: apihub-source-code
+           resource: ""
+           uri: https://github.com/drush1980/apigee-registry-governance-demo
