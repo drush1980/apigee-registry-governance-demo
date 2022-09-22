@@ -27,23 +27,23 @@ steps:
     - |
       export APG_REGISTRY_TOKEN=$(cat /workspace/creds)
       #Create API 
-      registry rpc update-api --api.name projects/$PROJECT_ID/locations/global/apis/petstore \
+      registry rpc update-api --api.name projects/$PROJECT_ID/locations/global/apis/sdlcdemoapi \
       --api.annotations "apihub-primary-contact=team@example.com" \
       --api.annotations "apihub-primary-contact-description=Team email" \
       --api.labels "apihub-business-unit=example" \
-      --api.labels "apihub-lifecycle=concept" \
+      --api.labels "apihub-lifecycle=develop" \
       --api.labels "apihub-style=apihub-openapi" \
       --api.labels "apihub-target-users=public" \
       --api.labels "apihub-team=example" \
-      --api.description "Petstore API to manage Pets" \
-      --api.display_name Petstore --allow_missing
+      --api.description "Example API to show the development lifecycle" \
+      --api.display_name "SDLC Demo API" --allow_missing
       #Create API Version 
       registry rpc update-api-version --api_version.name \
-      projects/$PROJECT_ID/locations/global/apis/petstore/versions/v1 --api_version.display_name v1 \
+      projects/$PROJECT_ID/locations/global/apis/sdlcdemoapi/versions/1.0.0 --api_version.display_name 1.0.0 \
       --allow_missing
       #Create API Version Spec
       registry rpc update-api-spec --api_spec.filename=openapi.yaml \
-      --api_spec.name=projects/$PROJECT_ID/locations/global/apis/petstore/versions/v1/specs/openapi.yaml \
+      --api_spec.name=projects/$PROJECT_ID/locations/global/apis/sdlcdemoapi/versions/1.0.0/specs/openapi.yaml \
       --api_spec.contents `cat openapi.yaml | gzip --stdout | xxd -p | tr -d '\n'` --api_spec.mime_type "application/x.openapi+gzip;version=3" \
       --json --allow_missing > /workspace/spec_output
       apt update && apt install jq -y
@@ -78,11 +78,11 @@ steps:
     - |
       export APG_REGISTRY_TOKEN=$(cat /workspace/creds)
       registry rpc update-api-deployment \
-      --api_deployment.name projects/$PROJECT_ID/locations/global/apis/petstore/deployments/mock-service \
-      --api_deployment.api_spec_revision projects/$PROJECT_ID/locations/global/apis/petstore/versions/v1/specs/openapi.yaml@$(cat /workspace/revisionId) \
+      --api_deployment.name projects/$PROJECT_ID/locations/global/apis/sdlcdemoapi/deployments/mock-service \
+      --api_deployment.api_spec_revision projects/$PROJECT_ID/locations/global/apis/sdlcdemoapi/versions/v1/specs/openapi.yaml@$(cat /workspace/revisionId) \
       --api_deployment.display_name "Mock endpoint" \
-      --api_deployment.endpoint_uri "$(cat /workspace/cloudrunendpoint)/projects/$PROJECT_ID/locations/global/apis/petstore/versions/v1/specs/openapi.yaml" \
-      --api_deployment.external_channel_uri "$(cat /workspace/cloudrunendpoint)/projects/$PROJECT_ID/locations/global/apis/petstore/versions/v1/specs/openapi.yaml" \
+      --api_deployment.endpoint_uri "$(cat /workspace/cloudrunendpoint)/projects/$PROJECT_ID/locations/global/apis/sdlcdemoapi/versions/v1/specs/openapi.yaml" \
+      --api_deployment.external_channel_uri "$(cat /workspace/cloudrunendpoint)/projects/$PROJECT_ID/locations/global/apis/sdlcdemoapi/versions/v1/specs/openapi.yaml" \
       --api_deployment.annotations "apihub-external-channel-name=Mock" \
       --api_deployment.intended_audience "This is a Mock endpoint" \
       --api_deployment.labels "apihub-gateway=apihub-unmanaged" \

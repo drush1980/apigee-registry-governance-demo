@@ -1,0 +1,31 @@
+steps:
+- id: "Authenticate to gcloud"
+  name: gcr.io/cloud-builders/gcloud
+  entrypoint: /bin/bash
+  args: 
+    - -c
+    - |
+      # store environment variables
+      # name all values with a common prefix (we'll use "build_")
+      export build_token=\"$(gcloud auth application-default print-access-token)\"
+      # write all "build_" variables to the persistent volume "/workspace"
+      env | grep "^build_" > /workspace/creds
+
+- name: node:12
+  id: "Install Dependencies"
+  entrypoint: npm
+  args: ['install', '--silent', '--no-fund']
+
+- id: "API Standard Conformance Check"
+  name: node:12
+  entrypoint: npm
+  args: ['run', 'lint']
+
+- name: 'gcr.io/cloud-builders/mvn'
+  id: "Create/Update API in Registry"
+  entrypoint: 'bash'
+  args:
+    - -c 
+    - |
+      source /workspace/creds &&
+      mvn -f pom.xml -ntp install -Pdev -DprojectId=$PROJECT_ID -Doptions=update -DapiConfigFile=api-config.yaml -Dbearer=${build_token}

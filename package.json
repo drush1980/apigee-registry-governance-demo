@@ -9,18 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ssvaidyanathan/apigee-registry-governance-demo.git"
+    "url": "git+https://github.com/drush1980/apigee-registry-governance-demo.git"
   },
   "keywords": [
     "Apigee",
     "Registry"
   ],
-  "author": "Sai Saran Vaidyanathan",
+  "author": "David Rush",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ssvaidyanathan/apigee-registry-governance-demo/issues"
+    "url": "https://github.com/drush1980/apigee-registry-governance-demo/issues"
   },
-  "homepage": "https://github.com/ssvaidyanathan/apigee-registry-governance-demo#readme",
+  "homepage": "https://github.com/drush1980/apigee-registry-governance-demo#readme",
   "dependencies": {
     "@stoplight/spectral-cli": "^6.4.1"
   }

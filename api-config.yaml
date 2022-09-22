@@ -1,0 +1,34 @@
+apiVersion: apigeeregistry/v1
+kind: API
+metadata:
+ name: sdlcdemoapi
+ labels:
+   apihub-business-unit: example
+   apihub-lifecycle: develop
+   apihub-style: apihub-openapi
+   apihub-target-users: public
+   apihub-team: example
+ annotations:
+   apihub-primary-contact: team@example.com
+   apihub-primary-contact-description: Dev Team
+data:
+ displayName: "SDLC Demo API"
+ description: "Example API to show the development lifecycle"
+ availability: NONE
+ versions:
+   - metadata:
+       name: "0.1.0"
+       annotations:
+         apihub-end-of-life-date: "2027-09-29T00:00:00.000Z"
+         apihub-end-of-life-type: apihub-confirmed
+     data:
+       displayName: 0.1.0
+       state: develop
+       specs:
+         - metadata:
+             name: openapi-010yaml
+           data:
+             filename: openapi-0.1.0.yaml
+             mimeType: "application/x.openapi"
+             #sourceURI: "file://./specs/openapi.yaml"
+             sourceURI: "file://./openapi.yaml"
