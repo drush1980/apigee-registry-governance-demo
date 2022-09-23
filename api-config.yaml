@@ -50,7 +50,7 @@ data:
          apihub-external-channel-name: ""
      data:
        displayName: mock
-       apiSpecRevision: 0.1.2/specs/openapi-012json@latest
+       apiSpecRevision: 0.1.2/specs/openapi-010json@latest
        endpointURI: http://104.155.158.220/projects/drush-apigee/locations/global/apis/sdlcdemoapi
        externalChannelURI: ""
        intendedAudience: Currently intended for internal developers only
