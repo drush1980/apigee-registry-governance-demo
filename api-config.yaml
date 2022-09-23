@@ -26,7 +26,7 @@ data:
        state: develop
        specs:
          - metadata:
-             name: openapi-010yaml
+             name: openapi-012yaml
              annotations:
                apihub-comment: Initial version of YAML       
            data:
@@ -40,7 +40,7 @@ data:
            data:
              filename: openapi-0.1.2.json
              mimeType: "application/x.openapi"
-             sourceURI: "file://./openapi.json"             
+             sourceURI: "file://./openapi.json"
  deployments:
    - metadata:
        name: mock
