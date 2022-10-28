@@ -26,7 +26,7 @@ data:
        state: develop
        specs:
          - metadata:
-             name: openapi-014yaml
+             name: openapi-015yaml
              annotations:
                apihub-comment: Initial version of YAML       
            data:
@@ -34,7 +34,7 @@ data:
              mimeType: "application/x.openapi"
              sourceURI: "file://./openapi.yaml"
          - metadata:
-             name: openapi-014json
+             name: openapi-015json
              annotations:
                apihub-comment: Initial version of JSON        
            data:
