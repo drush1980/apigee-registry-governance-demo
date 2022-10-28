@@ -51,7 +51,7 @@ data:
      data:
        displayName: mock
        apiSpecRevision: 0.1.5/specs/openapi-015json@latest
-       endpointURI: http://104.155.158.220/projects/drush-apigee/locations/global/apis/sdlcdemoapi
+       endpointURI: http://35.194.37.184/projects/drush-apigee/locations/global/apis/sdlcdemoapi
        externalChannelURI: ""
        intendedAudience: Currently intended for internal developers only
        accessGuidance: Contact engineering for access to dev
