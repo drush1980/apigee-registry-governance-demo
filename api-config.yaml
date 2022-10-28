@@ -17,28 +17,28 @@ data:
  availability: NONE
  versions:
    - metadata:
-       name: "0.1.5"
+       name: "0.1.6"
        annotations:
          apihub-end-of-life-date: "2027-09-29T00:00:00.000Z"
          apihub-end-of-life-type: apihub-confirmed
      data:
-       displayName: 0.1.5
+       displayName: 0.1.6
        state: develop
        specs:
          - metadata:
-             name: openapi-015yaml
+             name: openapi-016yaml
              annotations:
                apihub-comment: Initial version of YAML       
            data:
-             filename: openapi-0.1.5.yaml
+             filename: openapi-0.1.6.yaml
              mimeType: "application/x.openapi"
              sourceURI: "file://./openapi.yaml"
          - metadata:
-             name: openapi-015json
+             name: openapi-016json
              annotations:
                apihub-comment: Initial version of JSON        
            data:
-             filename: openapi-0.1.5.json
+             filename: openapi-0.1.6.json
              mimeType: "application/x.openapi"
              sourceURI: "file://./openapi.json"
  deployments:
@@ -50,7 +50,7 @@ data:
          apihub-external-channel-name: ""
      data:
        displayName: mock
-       apiSpecRevision: 0.1.5/specs/openapi-015json@latest
+       apiSpecRevision: 0.1.6/specs/openapi-016json@latest
        endpointURI: http://35.194.37.184/projects/drush-apigee/locations/global/apis/sdlcdemoapi
        externalChannelURI: ""
        intendedAudience: Currently intended for internal developers only
